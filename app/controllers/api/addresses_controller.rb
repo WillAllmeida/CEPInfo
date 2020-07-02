@@ -27,18 +27,24 @@ module Api
                         
                         
                         @result = JSON.parse(response.body)
+
                     }
 
-                    address.city = @result["cidade"]
-                    address.uf = @result["uf"]
-                    address.address = @result["logradouro"]
-                    address.district = @result["bairro"]
+                    if @result.length > 0
+                        address.city = @result["cidade"]
+                        address.uf = @result["uf"]
+                        address.address = @result["logradouro"]
+                        address.district = @result["bairro"]
 
-                    if address.save
-                        render json: {status: 'SUCCESS', message:'Sucesso ao salvar informações do CEP', data:address},status: :ok
+                        if address.save
+                            render json: {status: 'SUCCESS', message:'Sucesso ao salvar informações do CEP', data:address},status: :ok
+                        else
+                            render json: {status: 'ERROR', message:'Erro ao buscar informações do CEP informado', data:address.errors},status: :unprocessable_entity
+                        end
                     else
-                        render json: {status: 'ERROR', message:'Erro ao buscar informações do CEP informado', data:address.errors},status: :unprocessable_entity
+                        render json: {status: 'ERROR', message:'Erro ao buscar informações do CEP informado (Não possui informações)'},status: :unprocessable_entity
                     end
+
                 else
                     render json: {status: 'SUCCESS', message:'Sucesso ao retornar informações do CEP', data:addressCheck},status: :ok
                 end

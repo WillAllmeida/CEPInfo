@@ -1,28 +1,17 @@
-<<<<<<< HEAD
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-=======
 # CEPInfo
->>>>>>> 9917a02a2ef25b2efd685c9337909b90e72c328a
+
+Versões das tecnologias utilizadas:
+
+Ruby: 2.50
+Rails: 6.0.3
+
+Para rodar o projeto basta digitar o seguinte comando:
+
+```
+$ rails s
+```
+
+Após a execução do projeto a rota a qual deverá ser enviado o post com o cep como parâmetro é:
+```
+localhost:3000/api/addresses
+```
