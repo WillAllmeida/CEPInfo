@@ -48,3 +48,15 @@ GET
 ```
 localhost:3000/api/addresses
 ```
+
+# Testes
+
+Para rodar os testes unitários de routes/models o comando abaixo deverá ser utilizado
+```
+$ rails test
+```
+
+Já os testes da API, deverão ser rodados por meio do RSpec
+```
+$ bundle exec rspec
+```
