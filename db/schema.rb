@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_01_143716) do
+ActiveRecord::Schema.define(version: 2020_07_03_053856) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "cep"
@@ -18,6 +18,13 @@ ActiveRecord::Schema.define(version: 2020_07_01_143716) do
     t.string "uf"
     t.string "address"
     t.string "district"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
