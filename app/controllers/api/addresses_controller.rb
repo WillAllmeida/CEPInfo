@@ -9,7 +9,7 @@ module Api
             public
             def index
                 addresses = Address.order('created_at DESC');
-                render json: {status: 'SUCCESS', message:'sucesso', data:addresses},status: :ok
+                render json: {message:'Endereços retornados com sucesso', data:addresses},status: :ok
             end
             
             def create
@@ -37,16 +37,16 @@ module Api
                         address.district = @result["bairro"]
 
                         if address.save
-                            render json: {status: 'SUCCESS', message:'Sucesso ao salvar informações do CEP', data:address},status: :ok
+                            render json: {message:'Sucesso ao salvar informações do CEP', data:address},status: :ok
                         else
-                            render json: {status: 'ERROR', message:'Erro ao buscar informações do CEP informado', data:address.errors},status: :unprocessable_entity
+                            render json: {message:'Erro ao buscar informações do CEP informado', data:address.errors},status: :unprocessable_entity
                         end
                     else
-                        render json: {status: 'ERROR', message:'Erro ao buscar informações do CEP informado (Não possui informações)'},status: :unprocessable_entity
+                        render json: {message:'Erro ao buscar informações do CEP informado (Não possui informações)'},status: :unprocessable_entity
                     end
 
                 else
-                    render json: {status: 'SUCCESS', message:'Sucesso ao retornar informações do CEP', data:addressCheck},status: :ok
+                    render json: {message:'Sucesso ao retornar informações do CEP', data:addressCheck},status: :ok
                 end
 
             end
